@@ -63,17 +63,14 @@ void addSensors() {
   // Добавление различных сенсоров при помощи разработанной библиотеки
   // Показатель температуры
   SmartThing.addSensor("temperature", []() {
-    // return bme.readTemperature();
-    return 20;
+    return bme.readTemperature();
   });
   // Показатель влажности
   SmartThing.addSensor("humidity", []() {
-    // return bme.readHumidity();
-    return 80;
+    return bme.readHumidity();
   });
   // Показатель давления
   SmartThing.addSensor("pressure", []() {
-    // return bme.readPressure() * 0.00750062;
-    return 745;
+    return bme.readPressure() * 0.00750062;
   });
 }
