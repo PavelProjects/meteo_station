@@ -60,21 +60,21 @@ void loop() {
     // Получение входящих подключений для обновления прошивки
     ArduinoOTA.handle();
   }
-  delay(500);
+  delay(250);
 }
 
 void addSensors() {
   // Добавление различных сенсоров при помощи разработанной библиотеки
   // // Показатель температуры
-  SmartThing.addSensor("temperature", []() {
-    return aht.readTemperature();
+  ObservablesManager.addSensor("temperature", []() {
+    return aht.readTemperature(AHT10_FORCE_READ_DATA);
   });
   // // Показатель влажности
-  SmartThing.addSensor("humidity", []() {
-    return aht.readHumidity();
+  ObservablesManager.addSensor("humidity", []() {
+    return aht.readHumidity(AHT10_FORCE_READ_DATA);
   });
   // Показатель давления
-  SmartThing.addSensor("pressure", []() {
+  ObservablesManager.addSensor("pressure", []() {
     return bmp.readPressure() * 0.00750062;
   });
 }
