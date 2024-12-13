@@ -66,15 +66,15 @@ void loop() {
 void addSensors() {
   // Добавление различных сенсоров при помощи разработанной библиотеки
   // // Показатель температуры
-  ObservablesManager.addSensorCustom("temperature", []() {
+  SensorsManager.addSensor("temperature", []() {
     return aht.readTemperature(AHT10_FORCE_READ_DATA);
   });
   // // Показатель влажности
-  ObservablesManager.addSensorCustom("humidity", []() {
+  SensorsManager.addSensor("humidity", []() {
     return aht.readHumidity(AHT10_FORCE_READ_DATA);
   });
   // Показатель давления
-  ObservablesManager.addSensorCustom("pressure", []() {
+  SensorsManager.addSensor("pressure", []() {
     return bmp.readPressure() * 0.00750062;
   });
 }
